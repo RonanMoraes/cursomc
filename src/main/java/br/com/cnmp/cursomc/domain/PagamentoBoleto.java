@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import br.com.cnmp.cursomc.domain.enums.EstadoPagamento;
 
 
@@ -11,8 +13,11 @@ import br.com.cnmp.cursomc.domain.enums.EstadoPagamento;
 public class PagamentoBoleto extends Pagamento {
 	private static final long serialVersionUID = 1L;
 	
+	@JsonFormat(pattern="dd/MM/yyy")
 	private Date dataVencimento;
+	@JsonFormat(pattern="dd/MM/yyy")
 	private Date dataPagamento;
+	
 	
 	public PagamentoBoleto() {
 		super();
@@ -23,10 +28,10 @@ public class PagamentoBoleto extends Pagamento {
 		this.dataPagamento = dataPagamento; 
 		this.dataVencimento = dataVencimento;
 	}
-	public Date getNumeroParcelas() {
+	public Date getDataVencimento() {
 		return dataVencimento;
 	}
-	public void setNumeroParcelas(Date numeroParcelas) {
+	public void setDataVencimento(Date numeroParcelas) {
 		this.dataVencimento = numeroParcelas;
 	}
 	public Date getDataPagamento() {
