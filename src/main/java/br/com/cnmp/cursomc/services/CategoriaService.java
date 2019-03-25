@@ -11,6 +11,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import br.com.cnmp.cursomc.domain.Categoria;
+import br.com.cnmp.cursomc.dto.CategoriaDTO;
 import br.com.cnmp.cursomc.repositories.CategoriaRepository;
 import br.com.cnmp.cursomc.services.exeception.DataIntegrityException;
 import br.com.cnmp.cursomc.services.exeception.ObjectNotFoundException;
@@ -51,5 +52,8 @@ public class CategoriaService {
 			throw new DataIntegrityException("Não é possível excluir categorias que estejam com produtos cadastrados");
 		}
 		
+	}
+	public Categoria fromDTO(CategoriaDTO catDTO) {
+		return new Categoria(catDTO.getId(), catDTO.getNome());
 	}
 }
